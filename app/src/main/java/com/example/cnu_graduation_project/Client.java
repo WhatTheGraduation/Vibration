@@ -7,7 +7,6 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -19,9 +18,6 @@ import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.location.ActivityTransition;
 import com.google.android.gms.location.ActivityTransitionRequest;
 import com.google.android.gms.location.DetectedActivity;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +30,7 @@ import java.util.List;
 
 public class Client extends AppCompatActivity {
 
+    ActivityRecognitionClient client;
     //시작시 보여주는 text
     TextView drivingModeView;
     @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -52,6 +49,23 @@ public class Client extends AppCompatActivity {
         } else {
             drivingModeView.setText("운전 중이 아닙니다.");
         }
+        client = ActivityRecognition.getClient(this);
+        requestforUpdate();
+    }
+
+    private void requestforUpdate() {
+        client.requestActivityTransitionUpdates(
+                getTrangitionRequest(),
+                getPendingIntent()
+        );
+    }
+    private PendingIntent getPendingIntent(){
+        Intent intent = new Intent(this, DrivingRecognition.class);
+
+        return PendingIntent.getBroadcast(this,
+                0,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE);
     }
     /**
      * @author 재용
@@ -76,4 +90,28 @@ public class Client extends AppCompatActivity {
         }
     }
 
+
+    public ActivityTransitionRequest getTrangitionRequest(){
+        List<ActivityTransition> transitions = new ArrayList<>();
+
+        transitions.add(
+                new ActivityTransition.Builder()
+                        .setActivityType(DetectedActivity.IN_VEHICLE)
+                        .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
+                        .build());
+
+        transitions.add(
+                new ActivityTransition.Builder()
+                        .setActivityType(DetectedActivity.IN_VEHICLE)
+                        .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                        .build());
+
+        transitions.add(
+                new ActivityTransition.Builder()
+                        .setActivityType(DetectedActivity.STILL)
+                        .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                        .build());
+
+        return new ActivityTransitionRequest(transitions);
+    }
 }
