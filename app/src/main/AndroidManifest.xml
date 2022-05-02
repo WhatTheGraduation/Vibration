@@ -13,7 +13,7 @@
         android:theme="@style/Theme.CNU_Graduation_Project">
 
         <activity
-            android:name=".PermissionRationalActivity"
+            android:name=".ClientView.PermissionRationalActivity"
             android:label="title_activity_permission_rational"/>
         <activity
             android:name=".Client"

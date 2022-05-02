@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:id="@+id/sample_main_layout">
         <fragment
-            android:name="com.example.cnu_graduation_project.LogFragment"
+            android:name="com.example.cnu_graduation_project.ClientView.LogFragment"
             android:id="@+id/log_fragment"
             android:layout_weight="4"
             android:layout_width="match_parent"

@@ -32,10 +32,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
-import com.example.cnu_graduation_project.LogFragment;
+import com.example.cnu_graduation_project.ClientView.LogFragment;
+import com.example.cnu_graduation_project.ClientView.PermissionRationalActivity;
 import com.google.android.gms.location.ActivityRecognition;
 import com.google.android.gms.location.ActivityTransition;
 import com.google.android.gms.location.ActivityTransitionEvent;

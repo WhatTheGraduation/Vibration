@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cnu_graduation_project;
+package com.example.cnu_graduation_project.ClientView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -27,6 +27,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.example.cnu_graduation_project.R;
 
 import java.util.Arrays;
 

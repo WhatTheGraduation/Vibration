@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cnu_graduation_project;
+package com.example.cnu_graduation_project.ClientView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,7 +23,7 @@ import android.widget.TextView;
 /**
  * Outputs log data via Simple TextView.
  */
-public class LogView extends TextView {
+public class LogView extends androidx.appcompat.widget.AppCompatTextView {
 
     public LogView(Context context) {
         super(context);

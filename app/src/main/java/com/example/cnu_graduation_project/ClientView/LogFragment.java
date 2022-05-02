@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cnu_graduation_project;
+package com.example.cnu_graduation_project.ClientView;
 
 import android.graphics.Typeface;
 import android.os.Build;
@@ -35,7 +35,7 @@ import androidx.fragment.app.Fragment;
  */
 public class LogFragment extends Fragment {
 
-    private com.example.cnu_graduation_project.LogView mLogView;
+    private LogView mLogView;
     private ScrollView mScrollView;
 
     public LogFragment() {}
@@ -48,7 +48,7 @@ public class LogFragment extends Fragment {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         mScrollView.setLayoutParams(scrollParams);
 
-        mLogView = new com.example.cnu_graduation_project.LogView(getActivity());
+        mLogView = new LogView(getActivity());
         ViewGroup.LayoutParams logParams = new ViewGroup.LayoutParams(scrollParams);
         logParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         mLogView.setLayoutParams(logParams);
@@ -92,7 +92,7 @@ public class LogFragment extends Fragment {
         return result;
     }
 
-    public com.example.cnu_graduation_project.LogView getLogView() {
+    public LogView getLogView() {
         return mLogView;
     }
 }
