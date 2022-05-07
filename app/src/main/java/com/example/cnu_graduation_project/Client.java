@@ -15,11 +15,7 @@ package com.example.cnu_graduation_project;
  * limitations under the License.
  */
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.WindowManager;
-
 /**
  * Demos enabling/disabling Activity Recognition transitions, e.g., starting or stopping a walk,
  * run, drive, etc.).
@@ -30,12 +26,15 @@ public class Client extends DrivingRecognitionActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if(ACTIVITY_TAG) {
 
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                    | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         } else {
+
+
         }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }

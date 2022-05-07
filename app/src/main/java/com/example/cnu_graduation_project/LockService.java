@@ -6,6 +6,10 @@ import android.os.IBinder;
 
 /**
  * 백그라운드 작업
+ * 잠금화면을 실행하기 위한 서비스
+ *
+ * 시퀀스 다이어 그램에서 잠금화면에 해당
+ *
  */
 public class LockService extends Service {
     private LockReceiver mReceiver = null;

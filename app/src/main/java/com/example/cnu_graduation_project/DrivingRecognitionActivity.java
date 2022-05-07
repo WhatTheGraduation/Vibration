@@ -39,7 +39,7 @@ import java.util.Locale;
 
 public class DrivingRecognitionActivity extends AppCompatActivity{
 
-    protected static boolean ACTIVITY_TAG=true;
+    protected static boolean ACTIVITY_TAG=false;
     private final static String TAG = "MainActivity";
 
     // TODO: Review check for devices with Android 10 (29+).
@@ -60,8 +60,8 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
 
     private static String toActivityString(int activity) {
         switch (activity) {
-            case DetectedActivity.STILL:
-                return "STILL";
+            case DetectedActivity.IN_VEHICLE:
+                return "IN_VEHICLE";
             case DetectedActivity.WALKING:
                 return "WALKING";
             default:
@@ -69,13 +69,21 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
         }
     }
 
-    private static String toTransitionType(int transitionType) {
+    private String toTransitionType(int transitionType) {
+        Intent intent = new Intent(getApplicationContext(), LockService.class);
+
         switch (transitionType) {
             case ActivityTransition.ACTIVITY_TRANSITION_ENTER:
+                startService(intent);
                 ACTIVITY_TAG=true;
 
                 return "ENTER";
             case ActivityTransition.ACTIVITY_TRANSITION_EXIT:
+
+                /**
+                 * 해제와 동시에 백그라운드 종료
+                 */
+                stopService(intent);
                 ACTIVITY_TAG=false;
                 return "EXIT";
             default:
@@ -108,11 +116,11 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
                 .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
                 .build());
         activityTransitionList.add(new ActivityTransition.Builder()
-                .setActivityType(DetectedActivity.STILL)
+                .setActivityType(DetectedActivity.IN_VEHICLE)
                 .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
                 .build());
         activityTransitionList.add(new ActivityTransition.Builder()
-                .setActivityType(DetectedActivity.STILL)
+                .setActivityType(DetectedActivity.IN_VEHICLE)
                 .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
                 .build());
 
@@ -195,8 +203,6 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
                         /**
                          * 등록과 동시에 백그라운드 잠금화면 백그라운드 실행.
                          */
-                        Intent intent = new Intent(getApplicationContext(), LockService.class);
-                        startService(intent);
                     }
                 });
 
@@ -229,11 +235,6 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
                         activityTrackingEnabled = false;
                         printToScreen("Transitions successfully unregistered.");
 
-                        /**
-                         * 해제와 동시에 백그라운드 종료
-                         */
-                        Intent intent = new Intent(getApplicationContext(), LockService.class);
-                        stopService(intent);
                         Log.d(TAG, "Stop Background");
                     }
                 })
