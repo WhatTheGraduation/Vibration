@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cnu_graduation_project">
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
@@ -13,7 +14,7 @@
         android:theme="@style/Theme.CNU_Graduation_Project">
 
         <activity
-            android:name=".ClientView.PermissionRationalActivity"
+            android:name=".Permission.PermissionRationalActivity"
             android:label="title_activity_permission_rational"/>
         <activity
             android:name=".Client"
@@ -24,9 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".DrivingRecognition"
-            android:exported="false"
-            android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+
+        <activity android:name=".LockActivity"/>
+        <receiver android:name=".LockReceiver"/>
+        <service android:name=".LockService"/>
     </application>
 
 </manifest>
