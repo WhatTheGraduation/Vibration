@@ -1,6 +1,6 @@
 package com.example.cnu_graduation_project.Lock;
 
-import static com.example.cnu_graduation_project.DrivingRecognitionActivity.ACTIVITY_TAG;
+import static com.example.cnu_graduation_project.TaskTag.ACTIVITY_TAG;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -63,6 +63,7 @@ public class LockActivity extends Activity {
             km.requestDismissKeyguard(this,null);
 
         }
+
 
     }
 
