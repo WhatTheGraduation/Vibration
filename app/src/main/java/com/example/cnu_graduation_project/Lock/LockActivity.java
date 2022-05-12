@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.example.cnu_graduation_project.ClientActivity;
 import com.example.cnu_graduation_project.R;
 
 /**
@@ -29,7 +30,7 @@ import com.example.cnu_graduation_project.R;
  *
  *
  */
-public class LockActivity extends Activity {
+public class LockActivity extends ClientActivity {
     static String TAG ="LockActivity";
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 2323;
 
