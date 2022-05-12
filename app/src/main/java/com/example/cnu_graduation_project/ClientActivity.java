@@ -20,13 +20,18 @@ import android.os.Bundle;
  * Demos enabling/disabling Activity Recognition transitions, e.g., starting or stopping a walk,
  * run, drive, etc.).
  */
-public class Client extends DrivingRecognitionActivity {
+public class ClientActivity extends DrivingRecognitionActivity {
 
     String TAG = "ClientActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**
+         * 운전 상태 인식시에
+         */
         if(ACTIVITY_TAG) {
+
+
 
         } else {
 

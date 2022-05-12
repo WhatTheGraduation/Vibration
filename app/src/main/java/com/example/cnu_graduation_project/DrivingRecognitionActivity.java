@@ -59,24 +59,33 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
     private TransitionsReceiver mTransitionsReceiver;
     private LogFragment mLogFragment;
 
-    private static String toActivityString(int activity) {
+    private String toActivityString(int activity) {
+        Intent intent = new Intent(getApplicationContext(), LockService.class);
         switch (activity) {
             case DetectedActivity.IN_VEHICLE:
+                startService(intent);
+                ACTIVITY_TAG=true;
                 return "IN_VEHICLE";
             case DetectedActivity.WALKING:
+                startService(intent);
+                ACTIVITY_TAG=true;
                 return "WALKING";
+            case DetectedActivity.STILL:
+                ACTIVITY_TAG=false;
+                stopService(intent);
+                return "STILL";
             default:
+                stopService(intent);
+                ACTIVITY_TAG=false;
                 return "UNKNOWN";
         }
     }
 
     private String toTransitionType(int transitionType) {
-        Intent intent = new Intent(getApplicationContext(), LockService.class);
 
         switch (transitionType) {
             case ActivityTransition.ACTIVITY_TRANSITION_ENTER:
-                startService(intent);
-                ACTIVITY_TAG=true;
+//                ACTIVITY_TAG=true;
 
                 return "ENTER";
             case ActivityTransition.ACTIVITY_TRANSITION_EXIT:
@@ -84,8 +93,7 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
                 /**
                  * 해제와 동시에 백그라운드 종료
                  */
-                stopService(intent);
-                ACTIVITY_TAG=false;
+//                ACTIVITY_TAG=false;
                 return "EXIT";
             default:
                 return "UNKNOWN";
