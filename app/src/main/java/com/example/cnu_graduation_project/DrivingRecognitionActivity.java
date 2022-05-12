@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.cnu_graduation_project.ClientView.LogFragment;
+import com.example.cnu_graduation_project.Lock.LockService;
 import com.example.cnu_graduation_project.Permission.PermissionRationalActivity;
 import com.google.android.gms.location.ActivityRecognition;
 import com.google.android.gms.location.ActivityTransition;
@@ -39,7 +40,7 @@ import java.util.Locale;
 
 public class DrivingRecognitionActivity extends AppCompatActivity{
 
-    protected static boolean ACTIVITY_TAG=false;
+    public static boolean ACTIVITY_TAG=true;
     private final static String TAG = "MainActivity";
 
     // TODO: Review check for devices with Android 10 (29+).

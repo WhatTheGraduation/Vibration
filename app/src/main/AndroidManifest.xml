@@ -27,9 +27,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LockActivity"/>
-        <receiver android:name=".LockReceiver"/>
-        <service android:name=".LockService"/>
+        <activity android:name=".Lock.LockActivity"/>
+        <receiver android:name=".Lock.LockReceiver"/>
+        <service android:name=".Lock.LockService"/>
     </application>
 
 </manifest>

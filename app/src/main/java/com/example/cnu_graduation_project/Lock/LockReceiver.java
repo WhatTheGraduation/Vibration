@@ -1,7 +1,5 @@
-package com.example.cnu_graduation_project;
+package com.example.cnu_graduation_project.Lock;
 
-import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +7,8 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
+
+import com.example.cnu_graduation_project.Lock.LockActivity;
 
 public class LockReceiver extends BroadcastReceiver {
     String TAG="LockReceiver";

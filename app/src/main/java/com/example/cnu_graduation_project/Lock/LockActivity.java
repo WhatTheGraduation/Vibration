@@ -1,4 +1,4 @@
-package com.example.cnu_graduation_project;
+package com.example.cnu_graduation_project.Lock;
 
 import static com.example.cnu_graduation_project.DrivingRecognitionActivity.ACTIVITY_TAG;
 
@@ -16,6 +16,8 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
+import com.example.cnu_graduation_project.R;
 
 /**
  * 잠금화면 페이지
