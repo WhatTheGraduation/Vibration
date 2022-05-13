@@ -1,6 +1,7 @@
 package com.example.cnu_graduation_project.Service;
 
 import static com.example.cnu_graduation_project.TaskTag.ACTIVITY_TAG;
+import static com.example.cnu_graduation_project.TaskTag.VIBRATION_TAG;
 import static com.example.cnu_graduation_project.TaskTag.WINDOW_ON;
 
 import android.app.Activity;
@@ -35,9 +36,14 @@ public class FeedbackActivity extends DrivingRecognitionActivity {
     public TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            if(WINDOW_ON&&ACTIVITY_TAG)
-                vibrator.vibrate(500);
-            Log.d(TAG,"vibration");
+            if(WINDOW_ON&&ACTIVITY_TAG) {
+                vibrator.vibrate(new long[]{100, 1000}, 0);
+                Log.d(TAG, "vibration");
+            }
+            else if(VIBRATION_TAG>1){
+                Log.d(TAG, "stop timer");
+                timer.cancel();
+            }
         }
     };
 
