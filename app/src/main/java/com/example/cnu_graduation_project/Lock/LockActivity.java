@@ -29,6 +29,10 @@ import com.example.cnu_graduation_project.R;
  * 잠금화면 자체를 다루는 엑티비티
  *
  *
+ * 상속 과정
+ *
+ *  DrivingRecongnitionActivity --> FeedbackActivity --> ClientActivity --> LockActivity
+ *
  */
 public class LockActivity extends ClientActivity {
     static String TAG ="LockActivity";

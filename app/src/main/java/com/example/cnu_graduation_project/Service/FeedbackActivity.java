@@ -21,10 +21,16 @@ import com.example.cnu_graduation_project.Lock.LockReceiver;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 진동 / 소리 구현부분
+ */
 public class FeedbackActivity extends DrivingRecognitionActivity {
 
     String TAG="FeedbackActibity";
     Vibrator vibrator;
+    /**
+     * 타이머 테스크로 진동을 준다.
+     */
     public Timer timer = new Timer();
     public TimerTask task = new TimerTask() {
         @Override

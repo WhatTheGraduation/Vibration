@@ -24,6 +24,10 @@ import com.example.cnu_graduation_project.Service.FeedbackActivity;
  * Demos enabling/disabling Activity Recognition transitions, e.g., starting or stopping a walk,
  * run, drive, etc.).
  */
+
+/**
+ * 사용자 페이
+ */
 public class ClientActivity extends FeedbackActivity {
 
     String TAG = "ClientActivity";
