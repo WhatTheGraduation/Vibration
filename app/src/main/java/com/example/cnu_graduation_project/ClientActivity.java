@@ -18,6 +18,7 @@ package com.example.cnu_graduation_project;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.cnu_graduation_project.Service.SoundActivity;
 import com.example.cnu_graduation_project.Service.VibrationActivity;
 
 /**
@@ -28,7 +29,7 @@ import com.example.cnu_graduation_project.Service.VibrationActivity;
 /**
  * 사용자 페이
  */
-public class ClientActivity extends VibrationActivity {
+public class ClientActivity extends SoundActivity {
 
     String TAG = "ClientActivity";
     @Override
@@ -38,8 +39,8 @@ public class ClientActivity extends VibrationActivity {
          * 운전 상태 인식시에
          */
         if(TaskTag.ACTIVITY_TAG&&TaskTag.WINDOW_ON) {
-            Log.d(TAG,"vibration");
-            startVibration();
+//            startVibration();
+            startSound();
         } else {
         }
         Log.d(TAG,"Create");
@@ -49,6 +50,7 @@ public class ClientActivity extends VibrationActivity {
         super.onStop();
         if(TaskTag.ACTIVITY_TAG&&!TaskTag.WINDOW_ON) {
 //            stopVibration();
+
         }
     }
 }

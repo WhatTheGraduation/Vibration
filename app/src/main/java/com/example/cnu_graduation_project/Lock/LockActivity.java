@@ -7,9 +7,15 @@ import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.WindowManager;
@@ -19,6 +25,10 @@ import androidx.annotation.RequiresApi;
 
 import com.example.cnu_graduation_project.ClientActivity;
 import com.example.cnu_graduation_project.R;
+import com.example.cnu_graduation_project.Service.SoundActivity;
+
+import java.net.URI;
+import java.net.URL;
 
 /**
  * 잠금화면 페이지
@@ -68,8 +78,6 @@ public class LockActivity extends ClientActivity {
             km.requestDismissKeyguard(this,null);
 
         }
-
-
     }
 
     /**
