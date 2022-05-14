@@ -25,7 +25,7 @@ import java.util.TimerTask;
 /**
  * 진동 / 소리 구현부분
  */
-public class FeedbackActivity extends DrivingRecognitionActivity {
+public class VibrationActivity extends DrivingRecognitionActivity {
 
     String TAG="FeedbackActibity";
     Vibrator vibrator;
@@ -40,7 +40,7 @@ public class FeedbackActivity extends DrivingRecognitionActivity {
                 vibrator.vibrate(new long[]{100, 1000}, 0);
                 Log.d(TAG, "vibration");
             }
-            else if(VIBRATION_TAG>1){
+            else if(!WINDOW_ON){
                 Log.d(TAG, "stop timer");
                 timer.cancel();
             }

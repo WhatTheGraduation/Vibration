@@ -18,7 +18,7 @@ package com.example.cnu_graduation_project;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.cnu_graduation_project.Service.FeedbackActivity;
+import com.example.cnu_graduation_project.Service.VibrationActivity;
 
 /**
  * Demos enabling/disabling Activity Recognition transitions, e.g., starting or stopping a walk,
@@ -28,7 +28,7 @@ import com.example.cnu_graduation_project.Service.FeedbackActivity;
 /**
  * 사용자 페이
  */
-public class ClientActivity extends FeedbackActivity {
+public class ClientActivity extends VibrationActivity {
 
     String TAG = "ClientActivity";
     @Override
