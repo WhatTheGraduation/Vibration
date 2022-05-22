@@ -54,7 +54,7 @@ public class VibrationActivity extends DrivingRecognitionActivity {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
     }
 
-    public void startVibration(){
+    public void start(){
         timer.schedule(task,0,1000);
     }
 

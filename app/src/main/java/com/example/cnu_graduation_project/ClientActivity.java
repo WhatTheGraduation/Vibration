@@ -29,7 +29,7 @@ import com.example.cnu_graduation_project.Service.VibrationActivity;
 /**
  * 사용자 페이
  */
-public class ClientActivity extends SoundActivity {
+public class ClientActivity extends VibrationActivity {
 
     String TAG = "ClientActivity";
     @Override
@@ -40,7 +40,7 @@ public class ClientActivity extends SoundActivity {
          */
         if(TaskTag.ACTIVITY_TAG&&TaskTag.WINDOW_ON) {
 //            startVibration();
-            startSound();
+            start();
         } else {
         }
         Log.d(TAG,"Create");

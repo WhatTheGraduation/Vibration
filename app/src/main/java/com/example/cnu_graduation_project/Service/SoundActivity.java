@@ -30,7 +30,7 @@ public class SoundActivity extends DrivingRecognitionActivity {
 
 
 
-    public void startSound(){
+    public void start(){
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(), uri);
         AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
