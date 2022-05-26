@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 public class SoundActivity extends DrivingRecognitionActivity {
 
-    static String TAG = "SoundService";
+    static String TAG = "SoundActivity";
 
 
 

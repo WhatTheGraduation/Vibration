@@ -27,7 +27,7 @@ import java.util.TimerTask;
  */
 public class VibrationActivity extends DrivingRecognitionActivity {
 
-    String TAG="FeedbackActibity";
+    String TAG="VibrationActivity";
     Vibrator vibrator;
     /**
      * 타이머 테스크로 진동을 준다.
@@ -36,13 +36,15 @@ public class VibrationActivity extends DrivingRecognitionActivity {
     public TimerTask task = new TimerTask() {
         @Override
         public void run() {
+            Log.d(TAG, WINDOW_ON+"");
             if(WINDOW_ON&&ACTIVITY_TAG) {
-                vibrator.vibrate(new long[]{100, 1000}, 0);
+                vibrator.vibrate(new long[]{100,1000},1);
                 Log.d(TAG, "vibration");
             }
             else if(!WINDOW_ON){
                 Log.d(TAG, "stop timer");
                 timer.cancel();
+                timer.purge();
             }
         }
     };

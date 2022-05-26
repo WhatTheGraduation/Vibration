@@ -2,33 +2,24 @@ package com.example.cnu_graduation_project.Lock;
 
 import static com.example.cnu_graduation_project.TaskTag.ACTIVITY_TAG;
 
-import android.app.Activity;
 import android.app.KeyguardManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.WindowManager;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 
 import com.example.cnu_graduation_project.ClientActivity;
 import com.example.cnu_graduation_project.R;
-import com.example.cnu_graduation_project.Service.SoundActivity;
-
-import java.net.URI;
-import java.net.URL;
+import com.example.cnu_graduation_project.Service.ForegroundService;
 
 /**
  * 잠금화면 페이지
@@ -47,11 +38,14 @@ import java.net.URL;
 public class LockActivity extends ClientActivity {
     static String TAG ="LockActivity";
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 2323;
+    private Button closeBtn;
 
     @RequiresApi(api = Build.VERSION_CODES.O_MR1)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"Start "+ TAG);
+
+
         /**
          * 백그라운드 권한 부여
          */
@@ -78,6 +72,24 @@ public class LockActivity extends ClientActivity {
             km.requestDismissKeyguard(this,null);
 
         }
+
+        closeBtn = findViewById(R.id.close);
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent serviceIntent = new Intent(LockActivity.this, ForegroundService.class);
+                serviceIntent.setAction("startForeground");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    ContextCompat.startForegroundService(LockActivity.this, serviceIntent);
+                    finish();
+                } else {
+                    startService(serviceIntent);
+                }
+            }
+        });
     }
 
     /**
