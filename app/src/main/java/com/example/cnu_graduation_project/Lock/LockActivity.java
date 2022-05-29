@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -42,7 +44,10 @@ public class LockActivity extends ClientActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O_MR1)
     protected void onCreate(Bundle savedInstanceState) {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+
         super.onCreate(savedInstanceState);
+
         Log.d(TAG,"Start "+ TAG);
 
 
