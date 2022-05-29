@@ -29,7 +29,7 @@ import com.example.cnu_graduation_project.Service.VibrationActivity;
 /**
  * 사용자 페이
  */
-public class ClientActivity extends VibrationActivity {
+public class ClientActivity extends SoundActivity {
 
     String TAG = "ClientActivity";
     @Override
