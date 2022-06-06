@@ -11,7 +11,7 @@ public class TaskTag {
     /**
      * 운전 중이라고 판단됐을때
      */
-    public static boolean ACTIVITY_TAG=true;
+    public static boolean ACTIVITY_TAG=false;
 
     static public int VIBRATION_TAG=0;
 

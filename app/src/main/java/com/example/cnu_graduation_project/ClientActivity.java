@@ -39,7 +39,7 @@ public class ClientActivity extends VibrationActivity {
          */
         if(TaskTag.ACTIVITY_TAG&&TaskTag.WINDOW_ON) {
             Log.d(TAG,"vibration");
-            startVibration();
+            start();
         } else {
         }
         Log.d(TAG,"Create");

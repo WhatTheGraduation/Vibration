@@ -1,23 +1,14 @@
 package com.example.cnu_graduation_project.Service;
 
 import static com.example.cnu_graduation_project.TaskTag.ACTIVITY_TAG;
-import static com.example.cnu_graduation_project.TaskTag.VIBRATION_TAG;
 import static com.example.cnu_graduation_project.TaskTag.WINDOW_ON;
 
-import android.app.Activity;
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
 
-import androidx.annotation.Nullable;
-
 import com.example.cnu_graduation_project.DrivingRecognitionActivity;
-import com.example.cnu_graduation_project.Lock.LockReceiver;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,7 +18,7 @@ import java.util.TimerTask;
  */
 public class VibrationActivity extends DrivingRecognitionActivity {
 
-    String TAG="FeedbackActibity";
+    String TAG="VibrationActivity";
     Vibrator vibrator;
     /**
      * 타이머 테스크로 진동을 준다.
@@ -36,13 +27,15 @@ public class VibrationActivity extends DrivingRecognitionActivity {
     public TimerTask task = new TimerTask() {
         @Override
         public void run() {
+            Log.d(TAG, WINDOW_ON+"");
             if(WINDOW_ON&&ACTIVITY_TAG) {
-                vibrator.vibrate(new long[]{100, 1000}, 0);
+                vibrator.vibrate(new long[]{100,1000},1);
                 Log.d(TAG, "vibration");
             }
             else if(!WINDOW_ON){
                 Log.d(TAG, "stop timer");
                 timer.cancel();
+                timer.purge();
             }
         }
     };
@@ -54,7 +47,7 @@ public class VibrationActivity extends DrivingRecognitionActivity {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
     }
 
-    public void startVibration(){
+    public void start(){
         timer.schedule(task,0,1000);
     }
 

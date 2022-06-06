@@ -2,9 +2,7 @@ package com.example.cnu_graduation_project.Lock;
 
 import static com.example.cnu_graduation_project.TaskTag.ACTIVITY_TAG;
 
-import android.app.Activity;
 import android.app.KeyguardManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,14 +10,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 
 import com.example.cnu_graduation_project.ClientActivity;
 import com.example.cnu_graduation_project.R;
+import com.example.cnu_graduation_project.Service.ForegroundService;
 
 /**
  * 잠금화면 페이지
@@ -38,13 +40,17 @@ import com.example.cnu_graduation_project.R;
 public class LockActivity extends ClientActivity {
     static String TAG ="LockActivity";
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 2323;
+    private Button closeBtn;
 
     @RequiresApi(api = Build.VERSION_CODES.O_MR1)
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
         super.onCreate(savedInstanceState);
+
         Log.d(TAG,"Start "+ TAG);
+
+
         /**
          * 백그라운드 권한 부여
          */
@@ -55,13 +61,13 @@ public class LockActivity extends ClientActivity {
          *
          *
          */
+        setContentView(R.layout.lock);
         if(ACTIVITY_TAG){
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
                     !Settings.canDrawOverlays(this)) {
                 RequestPermission();
             }
-            setContentView(R.layout.lock);
             /**
              * 잠금화면보다 높은 순위의 액티비티로 설정하고
              * 잠금화면을 지우는 태그
@@ -72,7 +78,23 @@ public class LockActivity extends ClientActivity {
 
         }
 
+        closeBtn = findViewById(R.id.close);
 
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent serviceIntent = new Intent(LockActivity.this, ForegroundService.class);
+                serviceIntent.setAction("startForeground");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    ContextCompat.startForegroundService(LockActivity.this, serviceIntent);
+                    finish();
+                } else {
+                    startService(serviceIntent);
+                }
+            }
+        });
     }
 
     /**
