@@ -65,7 +65,7 @@ public class DrivingRecognitionActivity extends AppCompatActivity{
                 startService(intent);
                 TaskTag.ACTIVITY_TAG=true;
                 return "IN_VEHICLE";
-            case DetectedActivity.WALKING:
+               case DetectedActivity.WALKING:
                 startService(intent);
                 TaskTag.ACTIVITY_TAG=true;
                 return "WALKING";

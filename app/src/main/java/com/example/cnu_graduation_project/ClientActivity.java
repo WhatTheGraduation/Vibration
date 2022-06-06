@@ -38,6 +38,11 @@ public class ClientActivity extends SoundActivity {
         /**
          * 운전 상태 인식시에
          */
+        if(TaskTag.ACTIVITY_TAG&&TaskTag.WINDOW_ON) {
+            Log.d(TAG,"vibration");
+            start();
+        } else {
+        }
         Log.d(TAG,"Create");
         start();
     }

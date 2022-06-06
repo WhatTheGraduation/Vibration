@@ -51,6 +51,7 @@ public class LockActivity extends ClientActivity {
         Log.d(TAG,"Start "+ TAG);
         setContentView(R.layout.lock);
 
+
         /**
          * 백그라운드 권한 부여
          */
@@ -61,6 +62,7 @@ public class LockActivity extends ClientActivity {
          *
          *
          */
+        setContentView(R.layout.lock);
         if(ACTIVITY_TAG){
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
