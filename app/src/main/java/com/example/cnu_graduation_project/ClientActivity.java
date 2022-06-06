@@ -38,19 +38,7 @@ public class ClientActivity extends SoundActivity {
         /**
          * 운전 상태 인식시에
          */
-        if(TaskTag.ACTIVITY_TAG&&TaskTag.WINDOW_ON) {
-//            startVibration();
-            start();
-        } else {
-        }
         Log.d(TAG,"Create");
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(TaskTag.ACTIVITY_TAG&&!TaskTag.WINDOW_ON) {
-//            stopVibration();
-
-        }
+        start();
     }
 }

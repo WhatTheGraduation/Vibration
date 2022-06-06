@@ -49,7 +49,7 @@ public class LockActivity extends ClientActivity {
         super.onCreate(savedInstanceState);
 
         Log.d(TAG,"Start "+ TAG);
-
+        setContentView(R.layout.lock);
 
         /**
          * 백그라운드 권한 부여
@@ -67,7 +67,6 @@ public class LockActivity extends ClientActivity {
                     !Settings.canDrawOverlays(this)) {
                 RequestPermission();
             }
-            setContentView(R.layout.lock);
             /**
              * 잠금화면보다 높은 순위의 액티비티로 설정하고
              * 잠금화면을 지우는 태그
