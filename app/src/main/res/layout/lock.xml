@@ -13,11 +13,7 @@
         >
         <ImageView
             android:id="@+id/icon"
-<<<<<<< HEAD
-            android:src="@drawable/sound"
-=======
             android:src="@drawable/vibration"
->>>>>>> 1697d79729082f765d73bff461f53f85237c6a36
             android:layout_marginTop="40dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -32,12 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-
-<<<<<<< HEAD
-            android:text="지금부터 운전 상태를 인식합니다.\n\n잠금을 풀면 지속적인 알람이 울립니다."
-=======
             android:text="지금부터 운전 상태를 인식합니다.\n\n잠금을 풀면 지속적인 진동이 울립니다."
->>>>>>> 1697d79729082f765d73bff461f53f85237c6a36
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/black"
